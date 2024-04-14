@@ -6,6 +6,31 @@ import ChatIcon from '~icons/solar/chat-line-linear'
 import ChevronDown from '~icons/solar/alt-arrow-down-outline'
 import BagIcon from '~icons/solar/bag-2-linear'
 import GraphIcon from '~icons/solar/graph-new-outline'
+import ProductGrid from './components/ProductGrid'
+
+const products = [
+	{
+		name: 'Product 1',
+		image:
+			'https://images.pexels.com/photos/397978/pexels-photo-397978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		price: '$19.99',
+	},
+	{
+		name: 'Product 2',
+		image:
+			'https://images.pexels.com/photos/3989394/pexels-photo-3989394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		price: '$29.99',
+	},
+	{
+		name: 'Product 3',
+		image:
+			'https://images.pexels.com/photos/4397919/pexels-photo-4397919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		price: '$39.99',
+	},
+]
 
 function App() {
 	return (
@@ -50,8 +75,8 @@ function App() {
 			</header>
 			<main className="px-9 mt-3">
 				<h1 className="font-semibold text-4xl">Dashboard</h1>
-				<div className="grid">
-					<section className="overview p-6 mt-8 rounded-lg">
+				<div className="grid mt-8">
+					<section className="overview p-6 rounded-lg">
 						<div className="flex justify-between">
 							<h2 className="font-semibold text-2xl">Overview</h2>
 							<Button
@@ -106,6 +131,73 @@ function App() {
 								Send Message
 							</Button>
 						</div>
+					</section>
+					<section className="popular p-4">
+						<h2 className="font-semibold text-2xl">Popular Products</h2>
+						<div className="mt-5 flex flex-col gap-3">
+							<div className="product flex gap-2 items-center">
+								<img
+									src="https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg?auto=compress&cs=tinysrgb&w=600"
+									alt="product"
+									className="rounded-lg h-[75px] w-[75px] object-cover"
+								/>
+								<div className="flex-1">
+									<h4 className="font-semibold text-xl">Coco cola</h4>
+									<p className="text-gray-500">Food / Drinks</p>
+								</div>
+								<p className="text-gray-900 tabular-nums text-xl font-bold">
+									$2,453
+								</p>
+							</div>
+							<div className="product flex gap-2 items-center">
+								<img
+									src="https://images.pexels.com/photos/3270222/pexels-photo-3270222.jpeg?auto=compress&cs=tinysrgb&w=600"
+									alt="product"
+									className="rounded-lg h-[75px] w-[75px] object-cover"
+								/>
+								<div className="flex-1">
+									<h4 className="font-semibold text-xl">Pine Forest</h4>
+									<p className="text-gray-500">Deodrant</p>
+								</div>
+								<p className="text-gray-900 tabular-nums text-xl font-bold">
+									$105.60
+								</p>
+							</div>
+							<div className="product flex gap-2 items-center">
+								<img
+									src="https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600"
+									alt="product"
+									className="rounded-lg h-[75px] w-[75px] object-cover"
+								/>
+								<div className="flex-1">
+									<h4 className="font-semibold text-xl">Blue Container</h4>
+									<p className="text-gray-500">Misc</p>
+								</div>
+								<p className="text-gray-900 tabular-nums text-xl font-bold">
+									$200
+								</p>
+							</div>
+							<div className="product flex gap-2 items-center">
+								<img
+									src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+									alt="product"
+									className="rounded-lg h-[75px] w-[75px] object-cover"
+								/>
+								<div className="flex-1">
+									<h4 className="font-semibold text-xl">Fufifilm X-10</h4>
+									<p className="text-gray-500">Camera</p>
+								</div>
+								<p className="text-gray-900 tabular-nums text-xl font-bold">
+									$3,000
+								</p>
+							</div>
+						</div>
+					</section>
+					<section className="col-span-2 mt-4 px-4 py-5">
+						<h1 className="text-3xl font-semibold mb-6">
+							Products to be released
+						</h1>
+						<ProductGrid products={products} />
 					</section>
 				</div>
 			</main>
