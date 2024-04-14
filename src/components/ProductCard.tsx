@@ -1,6 +1,15 @@
 import { Button } from '@vikramhegde/react-elemental'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({
+	product,
+}: {
+	product: {
+		name: string
+		image: string
+		description: string
+		price: string
+	}
+}) => {
 	return (
 		<div className="flex flex-col rounded-lg overflow-hidden shadow-lg">
 			<img
@@ -16,9 +25,6 @@ const ProductCard = ({ product }) => {
 				<span className="text-lg font-bold text-gray-800">{product.price}</span>
 			</div>
 			<div className="flex justify-end bg-gray-100 py-2 px-4">
-				{/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Add to Cart
-        </button> */}
 				<Button className="py-2">Add product</Button>
 			</div>
 		</div>
