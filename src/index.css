@@ -9,7 +9,7 @@ body {
 .grid {
 	display: grid;
 	grid-template-columns: 2.5fr 1fr;
-	gap: 2.5rem;
+	gap: 1rem;
 
 	section {
 		background-color: hsl(0, 0%, 98%);
