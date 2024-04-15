@@ -1,74 +1,31 @@
-import { Button, Chip } from '@vikramhegde/react-elemental'
-import ChevronDown from '~icons/solar/alt-arrow-down-outline'
+import { Button, Dropdown } from '@vikramhegde/react-elemental'
+import { useState } from 'react'
 import BagIcon from '~icons/solar/bag-2-linear'
 import ChatIcon from '~icons/solar/chat-line-linear'
 import GraphIcon from '~icons/solar/graph-new-outline'
-import ProductGrid from './components/ProductGrid'
 import Header from './components/Header'
 import PopularProduct from './components/PopularProduct'
+import ProductGrid from './components/ProductGrid'
+import { popularProducts, products } from './assets/products'
 
-const products = [
+const options = [
 	{
-		name: 'Product 1',
-		image:
-			'https://images.pexels.com/photos/397978/pexels-photo-397978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: '$19.99',
+		label: 'Last 7 days',
+		value: '7',
 	},
 	{
-		name: 'Product 2',
-		image:
-			'https://images.pexels.com/photos/3989394/pexels-photo-3989394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: '$29.99',
+		label: 'Last 30 days',
+		value: '30',
 	},
 	{
-		name: 'Product 3',
-		image:
-			'https://images.pexels.com/photos/4397919/pexels-photo-4397919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: '$39.99',
-	},
-]
-
-const popularProducts = [
-	{
-		name: 'Coco cola',
-		image:
-			'https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg?auto=compress&cs=tinysrgb&w=600',
-		category: 'Food / Drinks',
-		price: '$2,453',
-		status: 'Processing',
-		accent: 'orange',
-	},
-	{
-		name: 'Pine Forest',
-		image:
-			'https://images.pexels.com/photos/3270222/pexels-photo-3270222.jpeg?auto=compress&cs=tinysrgb&w=600',
-		category: 'Deodrant',
-		price: '$105.60',
-	},
-	{
-		name: 'Blue Container',
-		image:
-			'https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600',
-		category: 'Misc',
-		price: '$200',
-		status: 'Active',
-		accent: 'green',
-	},
-	{
-		name: 'Fufifilm X-10',
-		image:
-			'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-		category: 'Camera',
-		price: '$3000',
-		status: 'Inactive',
-		accent: 'red',
+		label: 'Last 90 days',
+		value: '90',
 	},
 ]
 
 function App() {
+	const [option, setOption] = useState(options[0])
+
 	return (
 		<>
 			<Header />
@@ -78,15 +35,18 @@ function App() {
 					<section className="overview p-6 rounded-lg">
 						<div className="flex justify-between">
 							<h2 className="font-semibold text-2xl">Overview</h2>
-							<Button
+							<Dropdown
 								variant="secondary"
-								size="sm"
-								borderAccent="secondary"
+								value={option}
+								onChange={(value) => setOption(value)}
 								className="py-1"
-								endIcon={<ChevronDown />}
-							>
-								All time
-							</Button>
+								placeholder="Select time period"
+								options={[
+									{ label: 'Last 7 days', value: '7' },
+									{ label: 'Last 30 days', value: '30' },
+									{ label: 'Last 90 days', value: '90' },
+								]}
+							/>
 						</div>
 						<div className="bg-gray-100 flex p-2 mt-6 rounded-lg">
 							<div className="flex gap-3 bg-gray-50 px-4 py-6 flex-1 rounded-md shadow-md">
