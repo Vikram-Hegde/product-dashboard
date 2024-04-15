@@ -5,7 +5,8 @@ type ProductProps = {
 	image: string
 	category: string
 	price: string
-	status: string
+	status?: string
+	accent?: string
 }
 
 const PopularProduct = ({ product }: { product: ProductProps }) => {
